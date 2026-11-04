@@ -13,9 +13,3 @@ str(employee)
 #Calculating basic statistics
 summary(employee)
 
-# Save our dataset locally
-write.csv(
-  employee,
-  "data/employee_salary.csv",
-  row.names = FALSE
-)
