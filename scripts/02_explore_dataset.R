@@ -9,3 +9,6 @@ names(employee)
 
 # Understanding the structure
 str(employee)
+
+#Calculating basic statistics
+summary(employee)
