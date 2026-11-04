@@ -17,3 +17,19 @@ ggplot(salary_data,aes(x=prevexp,y=salary))+
   )
 
 #Compare education with salary
+ggplot(salary_data, aes(x = edu, y = salary)) +
+  geom_point(color="#606c38",fill="#283618",shape =21,size =2) +
+  labs(
+    title = "Education vs Salary",
+    x = "Years of Education",
+    y = "Current Salary ($)"
+  )
+
+# Compare job categories with salary
+ggplot(salary_data, aes(x = jobcat, y = salary)) +
+  geom_boxplot() +
+  labs(
+    title = "Salary Distribution by Job Category",
+    x = "Job Category",
+    y = "Current Salary ($)"
+  )
