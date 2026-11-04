@@ -12,3 +12,9 @@ str(employee)
 
 #Calculating basic statistics
 summary(employee)
+
+# Save our dataset locally
+write.csv(
+  employee,
+  
+)
