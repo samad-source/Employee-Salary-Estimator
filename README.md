@@ -11,6 +11,8 @@ wrap: sentence
 
 A Machine Learning project built with **R, Multiple Linear Regression, and Shiny** to estimate employee salaries based on selected employment and educational information.
 
+[Live website](https://connect.posit.cloud/am-unscripted007/content/01a1acdd-264a-eb8b-6891-79b9acbe3cc3)
+
 ## Project Overview
 
 The Employee Salary Estimator is an interactive web application that predicts an estimated employee salary using a trained Multiple Linear Regression model.
