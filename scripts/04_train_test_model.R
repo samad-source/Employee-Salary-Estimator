@@ -69,3 +69,9 @@ ss_residual <- sum(
 r_squared <- 1 - (ss_residual / ss_total)
 
 r_squared
+
+cat("MAE:", mae, "\n")
+cat("RMSE:", rmse, "\n")
+cat("Test R-squared:", r_squared, "\n")
+
+# Visualising model performance
