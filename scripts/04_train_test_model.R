@@ -75,3 +75,25 @@ cat("RMSE:", rmse, "\n")
 cat("Test R-squared:", r_squared, "\n")
 
 # Visualising model performance
+ggplot(comparison, aes(
+  x = Actual_Salary,
+  y = Predicted_Salary
+)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_abline(
+    intercept = 0,
+    slope = 1,
+    linetype = "dashed"
+  ) +
+  labs(
+    title = "Actual Salary vs Predicted Salary",
+    subtitle = paste0(
+      "MAE: $", round(mae, 2),
+      " | RMSE: $", round(rmse, 2),
+      " | R-squared: ", round(r_squared * 100, 2), "%"
+    ),
+    x = "Actual Salary ($)",
+    y = "Predicted Salary ($)",
+    caption = "Dashed line represents perfect predictions."
+  ) +
+  theme_minimal()
