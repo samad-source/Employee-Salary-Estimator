@@ -33,3 +33,28 @@ ggplot(salary_data, aes(x = jobcat, y = salary)) +
     x = "Job Category",
     y = "Current Salary ($)"
   )
+
+# Relationship between salary and edu,startsal,prevexp,jobtime
+correlation_data <- salary_data[, c(
+  "salary",
+  "edu",
+  "startsal",
+  "prevexp",
+  "jobtime"
+)]
+
+cor(correlation_data)
+
+# Correlation matrix
+correlation_matrix <- cor(correlation_data)
+
+correlation_matrix["salary", ]
+
+# Visualizing the correlation matrix
+corrplot(
+  correlation_matrix,
+  method = "color",
+  type = "upper",
+  addCoef.col = "black"
+)
+
