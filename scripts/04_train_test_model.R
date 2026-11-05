@@ -56,3 +56,5 @@ rmse <- sqrt(mean(
 ))
 
 rmse
+
+# Calculate test R-squared
