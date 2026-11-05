@@ -456,41 +456,66 @@ ui <- page_fluid(
 )
 
 
+
 # =====================================
 # 3. SERVER
 # =====================================
 
 server <- function(input, output, session) {
   
+  # Generate prediction when button is clicked
   prediction <- eventReactive(input$predict, {
     
+    # Validate the user's inputs
+    validate(
+      need(
+        !is.null(input$edu) &&
+          input$edu >= 8 && input$edu <= 21,
+        "Education must be between 8 and 21 years."
+      ),
+      
+      need(
+        !is.null(input$startsal) &&
+          input$startsal >= 9000 &&
+          input$startsal <= 79980,
+        "Starting salary must be between $9,000 and $79,980."
+      ),
+      
+      need(
+        !is.null(input$prevexp) &&
+          input$prevexp >= 0 &&
+          input$prevexp <= 476,
+        "Previous experience must be between 0 and 476 months."
+      ),
+      
+      need(
+        !is.null(input$jobtime) &&
+          input$jobtime >= 63 && input$jobtime <= 98,
+        "Job time must be between 63 and 98 months."
+      )
+    )
+    
+    # Prepare employee information
     new_employee <- data.frame(
-      
       edu = input$edu,
-      
       startsal = input$startsal,
-      
       prevexp = input$prevexp,
-      
       jobtime = input$jobtime,
-      
       jobcat = factor(
         input$jobcat,
         levels = c("Clerical", "Custodial", "manager")
       )
     )
     
-    predict(
-      salary_model,
-      newdata = new_employee
-    )
-    
+    # Generate prediction
+    predict(salary_model, newdata = new_employee)
   })
   
+  
+  # Display the predicted salary
   output$salary_result <- renderUI({
     
     if (input$predict == 0) {
-      
       return(
         div(
           class = "empty-state",
@@ -502,7 +527,6 @@ server <- function(input, output, session) {
     
     div(
       class = "result-card",
-      
       div(
         class = "salary-value",
         paste0(
@@ -514,28 +538,42 @@ server <- function(input, output, session) {
           )
         )
       ),
-      
       p(
         class = "result-note",
         "Estimated salary based on the information provided."
       )
     )
-    
   })
   
+  
+  # Display education
   output$education_value <- renderText({
     input$edu
   })
   
+  
+  # Display previous experience
   output$experience_value <- renderText({
     paste(input$prevexp, "months")
   })
   
+  
+  # Display current job time
   output$jobtime_value <- renderText({
     paste(input$jobtime, "months")
   })
   
 }
+
+
+# =====================================
+# 4. RUN APPLICATION
+# =====================================
+
+shinyApp(
+  ui = ui,
+  server = server
+)
 
 
 # =====================================
