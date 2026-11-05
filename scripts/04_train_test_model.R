@@ -105,3 +105,30 @@ ggsave(
   height = 6,
   dpi = 300
 )
+
+# Create a residual plot
+residual_data <- data.frame(
+  Predicted_Salary = predicted_salary,
+  Residuals = test_data$salary - predicted_salary
+)
+
+ggplot(residual_data, aes(
+  x = Predicted_Salary,
+  y = Residuals
+)) +
+  geom_point(alpha = 0.7) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) +
+  labs(
+    title = "Residual Plot",
+    x = "Predicted Salary ($)",
+    y = "Residuals ($)"
+  ) +
+  theme_minimal()
+
+saveRDS(
+  salary_model,
+  "models/salary_model.rds"
+)
