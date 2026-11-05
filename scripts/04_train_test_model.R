@@ -58,3 +58,14 @@ rmse <- sqrt(mean(
 rmse
 
 # Calculate test R-squared
+ss_total <- sum(
+  (test_data$salary - mean(test_data$salary))^2
+)
+
+ss_residual <- sum(
+  (test_data$salary - predicted_salary)^2
+)
+
+r_squared <- 1 - (ss_residual / ss_total)
+
+r_squared
