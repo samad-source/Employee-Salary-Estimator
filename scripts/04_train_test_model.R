@@ -50,3 +50,9 @@ mae <- mean(abs(
 
 mae
 
+# Calculate RMSE
+rmse <- sqrt(mean(
+  (test_data$salary - predicted_salary)^2
+))
+
+rmse
