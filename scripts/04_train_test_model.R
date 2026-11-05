@@ -27,3 +27,9 @@ summary(salary_model)
 
 # Saving the model
 saveRDS(salary_model, "models/salary_model.rds")
+
+# Generate predictions
+predicted_salary <- predict(
+  salary_model,
+  newdata = test_data
+)
