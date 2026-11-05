@@ -35,3 +35,10 @@ predicted_salary <- predict(
 )
 
 # Compare actual salaries with predicted salaries
+comparison <- data.frame(
+  Actual_Salary = test_data$salary,
+  Predicted_Salary = round(predicted_salary, 2),
+  Difference = round(test_data$salary - predicted_salary, 2)
+)
+
+head(comparison, 10)
