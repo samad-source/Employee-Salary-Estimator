@@ -42,3 +42,11 @@ comparison <- data.frame(
 )
 
 head(comparison, 10)
+
+# Calculate MAE
+mae <- mean(abs(
+  test_data$salary - predicted_salary
+))
+
+mae
+
