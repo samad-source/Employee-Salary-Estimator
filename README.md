@@ -1,7 +1,10 @@
 ---
 editor_options: 
-  markdown: 
-    wrap: sentence
+---
+
+![Dashbord](images/Screenshot 2026-11-05 182500.png)
+markdown:
+wrap: sentence
 ---
 
 # Employee Salary Estimator
@@ -12,17 +15,13 @@ A Machine Learning project built with **R, Multiple Linear Regression, and Shiny
 
 The Employee Salary Estimator is an interactive web application that predicts an estimated employee salary using a trained Multiple Linear Regression model.
 
-Users can enter employee information, including years of education, starting salary, previous work experience, time in the current job, and job category.
-The application uses these details to generate a salary prediction.
+Users can enter employee information, including years of education, starting salary, previous work experience, time in the current job, and job category. The application uses these details to generate a salary prediction.
 
 This project demonstrates the complete machine learning workflow, from data exploration and preprocessing to model training, evaluation, and deployment preparation.
 
 ## Application Preview
 
-The application provides: - An interactive employee information form.
-- A salary prediction dashboard.
-- An estimated annual salary display.
-- An employee information summary.
+The application provides: - An interactive employee information form. - A salary prediction dashboard. - An estimated annual salary display. - An employee information summary.
 
 ## Technologies Used
 
@@ -41,13 +40,9 @@ The application provides: - An interactive employee information form.
 
 The project uses the `employee` dataset from the R package `stima`.
 
-**Dataset information:** - Total observations: 473 employees.
-- Total original variables: 9.
-- Target variable: `salary`.
-- Selected predictors: `edu`, `startsal`, `prevexp`, `jobtime`, and `jobcat`.
+**Dataset information:** - Total observations: 473 employees. - Total original variables: 9. - Target variable: `salary`. - Selected predictors: `edu`, `startsal`, `prevexp`, `jobtime`, and `jobcat`.
 
-The dataset contains historical employee salary information from the United States.
-It is used for educational and machine learning demonstration purposes.
+The dataset contains historical employee salary information from the United States. It is used for educational and machine learning demonstration purposes.
 
 ## Machine Learning Methodology
 
@@ -161,9 +156,9 @@ The Shiny application will open in your default browser or RStudio viewer.
 
 8.  View the estimated annual salary.
 
-    ![](images/clipboard-3723205012.png)
+    ![Image_1](images/Screenshot 2026-11-05 182500-01.png)
 
-    ![](images/clipboard-796328265.png)
+![Image_2](images/Screenshot 2026-11-05 182533.png)
 
 ## Future Improvements
 
@@ -178,8 +173,7 @@ Possible future improvements include:
 
 ## Important Disclaimer
 
-This project is an educational machine learning demonstration.
-It uses historical United States employee salary data and should not be used to determine actual employee compensation, hiring decisions, or current market salaries.
+This project is an educational machine learning demonstration. It uses historical United States employee salary data and should not be used to determine actual employee compensation, hiring decisions, or current market salaries.
 
 ## Author
 
