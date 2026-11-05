@@ -97,3 +97,11 @@ ggplot(comparison, aes(
     caption = "Dashed line represents perfect predictions."
   ) +
   theme_minimal()
+
+# Save the graph
+ggsave(
+  "plots/actual_vs_predicted.png",
+  width = 10,
+  height = 6,
+  dpi = 300
+)
