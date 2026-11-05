@@ -33,3 +33,5 @@ predicted_salary <- predict(
   salary_model,
   newdata = test_data
 )
+
+# Compare actual salaries with predicted salaries
