@@ -108,3 +108,9 @@ server <- function(input, output) {
   })
   
 }
+
+# RUN THE SHINY APPLICATION
+shinyApp(
+  ui = ui,
+  server = server
+)
