@@ -1,15 +1,13 @@
+
 library(shiny)
 
 # USER INTERFACE
 ui <- fluidPage(
   
-  # Application title
   titlePanel("Employee Salary Estimator"),
   
-  # Main layout
   sidebarLayout(
     
-    # Input section
     sidebarPanel(
       
       h3("Enter Employee Information"),
@@ -58,7 +56,6 @@ ui <- fluidPage(
       )
     ),
     
-    # Output section
     mainPanel(
       
       h3("Salary Prediction"),
@@ -68,39 +65,44 @@ ui <- fluidPage(
   )
 )
 
+
 # SERVER
 server <- function(input, output) {
   
-  # Load the trained machine learning model
-  salary_model <- readRDS("models/salary_model.rds")
+  # Load trained model
+  salary_model <- readRDS(
+    "C:/Users/CDT WO AZEEZ SAMAD/Downloads/Employee_Salary_Estimator/Employee_Salary_Estimator/models/salary_model.rds"
+  )
   
-  # Run prediction when the button is clicked
+  # Predict when button is clicked
   observeEvent(input$predict, {
     
-    # Collect information entered by the user
     new_employee <- data.frame(
+      
       edu = input$edu,
+      
       startsal = input$startsal,
+      
       prevexp = input$prevexp,
+      
       jobtime = input$jobtime,
+      
       jobcat = factor(
         input$jobcat,
-        levels = levels(train_data$jobcat)
+        levels = c("Clerical", "Custodial", "manager")
       )
     )
     
-    # Predict salary
     prediction <- predict(
       salary_model,
       newdata = new_employee
     )
     
-    # Display prediction
     output$salary_result <- renderText({
       
       paste(
         "Estimated Salary: $",
-        round(prediction, 2)
+        format(round(prediction, 2), big.mark = ",")
       )
       
     })
@@ -109,7 +111,8 @@ server <- function(input, output) {
   
 }
 
-# RUN THE SHINY APPLICATION
+
+# RUN APPLICATION
 shinyApp(
   ui = ui,
   server = server
